@@ -1,5 +1,11 @@
-let meals = [];
-let total = 0;
+let meals = JSON.parse(localStorage.getItem("meals")) || [];
+let total = parseInt(localStorage.getItem("total")) || 0;
+let goal = parseInt(localStorage.getItem("goal")) || 0;
+
+// Initialize on load
+window.onload = function () {
+  updateUI();
+};
 
 function switchScreen(id) {
   document.querySelectorAll(".screen").forEach(screen => {
@@ -22,11 +28,10 @@ function addMeal(event) {
   meals.push({ name, calories });
   total += calories;
 
-  document.getElementById("totalCalories").innerText = total + " kcal";
+  localStorage.setItem("meals", JSON.stringify(meals));
+  localStorage.setItem("total", total);
 
-  const li = document.createElement("li");
-  li.innerText = name + " - " + calories + " kcal";
-  document.getElementById("mealList").appendChild(li);
+  updateUI();
 
   document.querySelector("#add form").reset();
   showHome();
@@ -40,9 +45,52 @@ function saveProfile(event) {
 
   const bmi = (weight / ((height/100) * (height/100))).toFixed(2);
 
-  document.getElementById("displayHeight").innerText = height;
-  document.getElementById("displayWeight").innerText = weight;
-  document.getElementById("displayBMI").innerText = bmi;
+  localStorage.setItem("height", height);
+  localStorage.setItem("weight", weight);
+  localStorage.setItem("bmi", bmi);
 
+  updateUI();
   showHome();
+}
+
+function setGoal() {
+  goal = parseInt(document.getElementById("calorieGoal").value);
+  localStorage.setItem("goal", goal);
+  updateUI();
+}
+
+function updateUI() {
+  // Update Calories
+  document.getElementById("totalCalories").innerText = total + " kcal";
+
+  // Update Meal List
+  const mealList = document.getElementById("mealList");
+  mealList.innerHTML = "";
+  meals.forEach(meal => {
+    const li = document.createElement("li");
+    li.innerText = meal.name + " - " + meal.calories + " kcal";
+    mealList.appendChild(li);
+  });
+
+  // Update Profile
+  document.getElementById("displayHeight").innerText = localStorage.getItem("height") || "--";
+  document.getElementById("displayWeight").innerText = localStorage.getItem("weight") || "--";
+  document.getElementById("displayBMI").innerText = localStorage.getItem("bmi") || "--";
+
+  // Update Goal Progress
+  if (goal > 0) {
+    let percentage = Math.min((total / goal) * 100, 100);
+    document.getElementById("progressBar").style.width = percentage + "%";
+    document.getElementById("goalStatus").innerText =
+      "Goal Progress: " + percentage.toFixed(1) + "%";
+  }
+}
+
+function resetApp() {
+  localStorage.clear();
+  meals = [];
+  total = 0;
+  goal = 0;
+  updateUI();
+  alert("All data has been reset.");
 }

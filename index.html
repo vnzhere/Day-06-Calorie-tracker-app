@@ -21,6 +21,19 @@
     <h1>Welcome, Vaniya 👋</h1>
     <h3>Total Calories Today</h3>
     <h2 id="totalCalories">0 kcal</h2>
+    <div class="card">
+  <h3>Daily Calorie Goal</h3>
+  <input type="number" id="calorieGoal" placeholder="Enter goal (kcal)">
+  <button onclick="setGoal()">Set Goal</button>
+
+  <div class="progress-container">
+    <div id="progressBar"></div>
+  </div>
+
+  <p id="goalStatus"></p>
+</div>
+
+<button onclick="resetApp()" class="reset-btn">Reset All Data</button>
 
     <div class="card">
       <p><strong>Height:</strong> <span id="displayHeight">--</span> cm</p>

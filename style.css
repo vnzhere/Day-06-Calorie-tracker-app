@@ -47,3 +47,25 @@ input {
   margin-top: 20px;
   border-radius: 10px;
 }
+
+.progress-container {
+  width: 80%;
+  height: 20px;
+  background: rgba(255,255,255,0.3);
+  margin: 15px auto;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#progressBar {
+  height: 100%;
+  width: 0%;
+  background: #ffffff;
+  transition: width 0.5s ease;
+}
+
+.reset-btn {
+  background: #ff5252;
+  color: white;
+  margin-top: 20px;
+}
