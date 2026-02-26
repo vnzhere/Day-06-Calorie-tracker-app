@@ -1,0 +1,38 @@
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f4f4f4;
+}
+
+nav {
+  background: #2ecc71;
+  padding: 15px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  border: none;
+  background: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.screen {
+  display: none;
+  padding: 30px;
+  text-align: center;
+}
+
+.active {
+  display: block;
+}
+
+form input {
+  padding: 10px;
+  margin: 10px;
+  width: 200px;
+}

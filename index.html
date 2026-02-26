@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calorie Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <h2>Calorie Tracker</h2>
+    <div>
+      <button onclick="showHome()">Home</button>
+      <button onclick="showAdd()">Add Meal</button>
+      <button onclick="showHistory()">History</button>
+    </div>
+  </nav>
+
+  <!-- Home Screen -->
+  <div id="home" class="screen active">
+    <h1>Total Calories Today</h1>
+    <h2 id="totalCalories">0 kcal</h2>
+  </div>
+
+  <!-- Add Meal Screen -->
+  <div id="add" class="screen">
+    <h1>Add Meal</h1>
+    <form onsubmit="addMeal(event)">
+      <input type="text" id="mealName" placeholder="Meal Name" required>
+      <input type="number" id="calories" placeholder="Calories" required>
+      <button type="submit">Save Meal</button>
+    </form>
+  </div>
+
+  <!-- History Screen -->
+  <div id="history" class="screen">
+    <h1>Meal History</h1>
+    <ul id="mealList"></ul>
+  </div>
+
+<script src="script.js"></script>
+</body>
+</html>
