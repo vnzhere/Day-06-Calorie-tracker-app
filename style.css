@@ -1,13 +1,13 @@
 body {
-  font-family: Arial;
+  font-family: Arial, sans-serif;
   margin: 0;
-  background: #f4f4f4;
+  background: linear-gradient(to right, #a8e063, #56ab2f);
+  color: white;
 }
 
 nav {
-  background: #2ecc71;
+  background: rgba(0,0,0,0.2);
   padding: 15px;
-  color: white;
   display: flex;
   justify-content: space-between;
 }
@@ -17,13 +17,15 @@ button {
   margin: 5px;
   border: none;
   background: white;
+  color: #2e7d32;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 .screen {
   display: none;
-  padding: 30px;
+  padding: 40px;
   text-align: center;
 }
 
@@ -31,8 +33,17 @@ button {
   display: block;
 }
 
-form input {
+input {
   padding: 10px;
   margin: 10px;
-  width: 200px;
+  width: 220px;
+  border-radius: 5px;
+  border: none;
+}
+
+.card {
+  background: rgba(255,255,255,0.2);
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
 }
