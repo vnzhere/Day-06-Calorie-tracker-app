@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calorie Tracker</title>
+  <title>Calorie Tracker - Vaniya</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -9,19 +9,37 @@
   <nav>
     <h2>Calorie Tracker</h2>
     <div>
-      <button onclick="showHome()">Home</button>
+      <button onclick="showHome()">Dashboard</button>
+      <button onclick="showProfile()">Profile</button>
       <button onclick="showAdd()">Add Meal</button>
       <button onclick="showHistory()">History</button>
     </div>
   </nav>
 
-  <!-- Home Screen -->
+  <!-- DASHBOARD -->
   <div id="home" class="screen active">
-    <h1>Total Calories Today</h1>
+    <h1>Welcome, Vaniya 👋</h1>
+    <h3>Total Calories Today</h3>
     <h2 id="totalCalories">0 kcal</h2>
+
+    <div class="card">
+      <p><strong>Height:</strong> <span id="displayHeight">--</span> cm</p>
+      <p><strong>Weight:</strong> <span id="displayWeight">--</span> kg</p>
+      <p><strong>BMI:</strong> <span id="displayBMI">--</span></p>
+    </div>
   </div>
 
-  <!-- Add Meal Screen -->
+  <!-- PROFILE SCREEN -->
+  <div id="profile" class="screen">
+    <h1>Enter Basic Information</h1>
+    <form onsubmit="saveProfile(event)">
+      <input type="number" id="height" placeholder="Height (cm)" required>
+      <input type="number" id="weight" placeholder="Weight (kg)" required>
+      <button type="submit">Save Info</button>
+    </form>
+  </div>
+
+  <!-- ADD MEAL -->
   <div id="add" class="screen">
     <h1>Add Meal</h1>
     <form onsubmit="addMeal(event)">
@@ -31,7 +49,7 @@
     </form>
   </div>
 
-  <!-- History Screen -->
+  <!-- HISTORY -->
   <div id="history" class="screen">
     <h1>Meal History</h1>
     <ul id="mealList"></ul>
